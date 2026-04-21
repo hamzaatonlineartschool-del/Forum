@@ -1,0 +1,76 @@
+import Image from "next/image";
+import Link from "next/link";
+import { formatCommunityDisplayName } from "@/domain/forum";
+import type { ForumPost } from "@/types/forum";
+import { formatDistanceToNow } from "@/lib/format-date";
+import { PostCardActions } from "./post-card-actions";
+
+type Props = { post: ForumPost };
+
+export function PostCard({ post }: Props) {
+  const when = formatDistanceToNow(post.createdAt);
+
+  return (
+    <article className="overflow-hidden rounded-2xl border border-white/60 bg-white/70 shadow-[0_4px_24px_rgba(26,54,93,0.06)] backdrop-blur-sm">
+      <div className="flex items-start gap-3 p-5 pb-2">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={post.author.avatarUrl}
+          alt=""
+          className="size-10 shrink-0 rounded-full object-cover ring-2 ring-white"
+        />
+        <div className="min-w-0 flex-1">
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
+            <Link
+              href={`/forum/c/${post.communitySlug}`}
+              title={formatCommunityDisplayName({
+                slug: post.communitySlug,
+                handle: post.communityHandle,
+              })}
+              className="font-medium text-[var(--navy)] hover:underline"
+            >
+              {formatCommunityDisplayName({
+                slug: post.communitySlug,
+                handle: post.communityHandle,
+              })}
+            </Link>
+            <span className="text-slate-400">·</span>
+            <span className="text-slate-600">{post.author.name}</span>
+            <span className="text-slate-400">·</span>
+            <time className="text-slate-400" dateTime={post.createdAt}>
+              {when}
+            </time>
+          </div>
+          <Link href={`/forum/c/${post.communitySlug}/p/${post.id}`}>
+            <h2 className="font-heading mt-2 text-xl font-bold tracking-tight text-slate-900 hover:text-[var(--navy)]">
+              {post.title}
+            </h2>
+          </Link>
+        </div>
+      </div>
+
+      {post.imageUrl ? (
+        <Link
+          href={`/forum/c/${post.communitySlug}/p/${post.id}`}
+          className="block"
+        >
+          <div className="relative mx-5 aspect-[16/9] overflow-hidden rounded-xl">
+            <Image
+              src={post.imageUrl}
+              alt=""
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 720px"
+            />
+          </div>
+        </Link>
+      ) : null}
+
+      {post.excerpt ? (
+        <p className="px-5 pt-4 text-slate-600">{post.excerpt}</p>
+      ) : null}
+
+      <PostCardActions postId={post.id} communitySlug={post.communitySlug} />
+    </article>
+  );
+}
