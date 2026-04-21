@@ -27,3 +27,6 @@ next-env.d.ts
 
 # local debug logs
 .cursor/debug-*.log
+
+# editor
+.cursor/
