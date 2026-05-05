@@ -2,7 +2,7 @@ import { ForumFeedHeader, ForumFeedPaywall, PostCard } from "@/components/forum"
 import { getForumRepository } from "@/data/forum";
 import {
   parseFeedSort,
-  pickTopPostByEngagement,
+  pickTopPostByEngagementPreferringHero,
   sortPostsForFeed,
 } from "@/domain/forum";
 import { hasMyFeedFullAccessServer } from "@/lib/forum/access-server";
@@ -23,7 +23,7 @@ export default async function ForumFeedPage({ searchParams }: Props) {
   let posts = sorted;
   let hiddenCount = 0;
   if (!fullAccess && sorted.length > 1) {
-    const top = pickTopPostByEngagement(sorted);
+    const top = pickTopPostByEngagementPreferringHero(sorted);
     posts = top ? [top] : [];
     hiddenCount = Math.max(0, sorted.length - posts.length);
   }

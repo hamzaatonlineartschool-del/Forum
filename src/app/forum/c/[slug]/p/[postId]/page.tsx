@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { PostDetailView, PostLockedView } from "@/components/forum";
 import { getForumRepository } from "@/data/forum";
-import { pickTopPostByEngagement } from "@/domain/forum";
+import { pickTopPostByEngagementPreferringHero } from "@/domain/forum";
 import { getCommunityCourseLandingUrl } from "@/lib/forum";
 import { hasCommunityAccessServer } from "@/lib/forum/access-server";
 
@@ -17,13 +17,14 @@ export default async function PostPage({ params }: Props) {
   const unlocked = await hasCommunityAccessServer(slug);
   if (!unlocked) {
     const feed = forum.listPosts().filter((p) => p.communitySlug === slug);
-    const featured = pickTopPostByEngagement(feed);
+    const featured = pickTopPostByEngagementPreferringHero(feed);
     if (!featured || featured.id !== postId) {
       return (
         <PostLockedView
           community={community}
           postTitle={post.title}
           joinHref={getCommunityCourseLandingUrl(slug)}
+          imageUrl={post.imageUrl}
         />
       );
     }

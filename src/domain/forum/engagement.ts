@@ -23,3 +23,16 @@ export function pickTopPostByEngagement(
   });
   return copy[0];
 }
+
+/**
+ * Paywall teaser: when at least one thread has hero media, rank only those so
+ * locked feeds still show a visual. Falls back to all posts if none have images.
+ */
+export function pickTopPostByEngagementPreferringHero(
+  posts: readonly ForumPost[],
+): ForumPost | undefined {
+  if (posts.length === 0) return undefined;
+  const withHero = posts.filter((p) => p.imageUrl);
+  if (withHero.length > 0) return pickTopPostByEngagement(withHero);
+  return pickTopPostByEngagement(posts);
+}

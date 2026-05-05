@@ -10,7 +10,7 @@ import {
 import { getForumRepository } from "@/data/forum";
 import {
   formatCommunityDisplayName,
-  pickTopPostByEngagement,
+  pickTopPostByEngagementPreferringHero,
   shouldShowCommunityMemberCount,
 } from "@/domain/forum";
 import { getCommunityCourseLandingUrl } from "@/lib/forum";
@@ -33,7 +33,7 @@ export default async function CommunityPage({ params }: Props) {
   let displayPosts = feed;
   let hiddenCount = 0;
   if (!unlocked && feed.length > 1) {
-    const top = pickTopPostByEngagement(feed);
+    const top = pickTopPostByEngagementPreferringHero(feed);
     displayPosts = top ? [top] : [];
     hiddenCount = Math.max(0, feed.length - displayPosts.length);
   }

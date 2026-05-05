@@ -12,7 +12,10 @@ export {
   parseFeedSort,
   sortPostsForFeed,
 } from "./feed-sort";
-export { pickTopPostByEngagement } from "./engagement";
+export {
+  pickTopPostByEngagement,
+  pickTopPostByEngagementPreferringHero,
+} from "./engagement";
 export {
   COMMUNITY_MEMBERS_DISPLAY_MIN,
   shouldShowCommunityMemberCount,
