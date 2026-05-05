@@ -193,8 +193,8 @@ export const communities: Community[] = [
       "Character prompts, brush settings, and WIP feedback for Anna's Procreate learners.",
     memberCount: 892,
     studentsOnly: true,
-    /* Tablet + stylus — digital illustration / Procreate vibe */
-    imageUrl: us("photo-1611532736597-de2d4265fba3", 400),
+    /* iPad / Procreate editing — matches p5 WIP thread hero */
+    imageUrl: "/forum/post-p5-yuki-procreate-wip.png",
     category: "Illustration",
   },
   {
