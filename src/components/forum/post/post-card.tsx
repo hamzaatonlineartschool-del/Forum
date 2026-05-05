@@ -1,8 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 import { formatCommunityDisplayName } from "@/domain/forum";
 import type { ForumPost } from "@/types/forum";
 import { formatDistanceToNow } from "@/lib/format-date";
+import { PostBodyImage } from "./post-body-image";
 import { PostCardExpandableCaption } from "./post-card-expandable-caption";
 import { PostCardActions } from "./post-card-actions";
 
@@ -55,17 +55,14 @@ export function PostCard({ post }: Props) {
       {post.imageUrl ? (
         <Link
           href={`/forum/c/${post.communitySlug}/p/${post.id}`}
-          className="block"
+          className="block px-5"
         >
-          <div className="relative mx-5 aspect-[16/9] overflow-hidden rounded-xl">
-            <Image
-              src={post.imageUrl}
-              alt=""
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 720px"
-            />
-          </div>
+          <PostBodyImage
+            src={post.imageUrl}
+            variant="feed"
+            sizes="(max-width: 768px) 100vw, 720px"
+            className="rounded-xl"
+          />
         </Link>
       ) : null}
 

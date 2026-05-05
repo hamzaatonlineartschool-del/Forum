@@ -43,7 +43,7 @@ export function SavedPostsList() {
                   src={p.imageUrl}
                   alt=""
                   fill
-                  className="object-cover transition duration-300 group-hover:scale-[1.03]"
+                  className="object-contain transition duration-300 group-hover:scale-[1.03]"
                   sizes="(max-width: 640px) 96px, 160px"
                 />
               ) : (

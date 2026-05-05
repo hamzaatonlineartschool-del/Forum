@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { RichTextReader } from "@/components/editor/rich-text-reader";
+import { PostBodyImage } from "./post-body-image";
 import { PostCardActions } from "./post-card-actions";
 import { CommentsSection } from "../comments/comments-section";
 import { formatCommunityDisplayName } from "@/domain/forum";
@@ -59,13 +59,12 @@ export function PostDetailView({ post, community }: Props) {
         </div>
 
         {post.imageUrl ? (
-          <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-2xl">
-            <Image
+          <div className="mt-8">
+            <PostBodyImage
               src={post.imageUrl}
-              alt=""
-              fill
-              className="object-cover"
+              variant="detail"
               sizes="(max-width: 768px) 100vw, 720px"
+              className="rounded-2xl"
             />
           </div>
         ) : null}
