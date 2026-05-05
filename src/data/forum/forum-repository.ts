@@ -14,6 +14,8 @@ export interface ForumRepository {
   getExploreCategories(): readonly ExploreCategory[];
   listCommunities(): readonly Community[];
   listPosts(): readonly ForumPost[];
+  /** Threads for the signed-in user (in the mock seed: Megan Thornton's posts). */
+  listMyPosts(): readonly ForumPost[];
   listPostsNewestFirst(): readonly ForumPost[];
   getCommunityBySlug(slug: string): Community | undefined;
   getPostById(id: string): ForumPost | undefined;

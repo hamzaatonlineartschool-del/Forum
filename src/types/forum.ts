@@ -10,6 +10,8 @@ export type ForumUser = {
 export type Community = {
   id: string;
   slug: string;
+  /** Overrides slug/handle-derived labels in nav and post cards (e.g. course-titled spaces). */
+  displayName?: string;
   /** Display handle e.g. oas/Crochet */
   handle: string;
   description: string;
@@ -25,6 +27,8 @@ export type ForumPost = {
   /** URL segment e.g. digitalphotography */
   communitySlug: string;
   communityHandle: string;
+  /** Copied from {@link Community.displayName} when building the post for card chrome. */
+  communityDisplayName?: string;
   title: string;
   /** Plain excerpt for cards; optional */
   excerpt?: string;
@@ -35,6 +39,8 @@ export type ForumPost = {
   likeCount: number;
   commentCount: number;
   imageUrl?: string;
+  /** When false, post is omitted from the global /forum feed (still on community pages & permalinks). */
+  includeInMainFeed?: boolean;
 };
 
 export type ForumComment = {

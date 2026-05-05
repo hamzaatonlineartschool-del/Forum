@@ -26,12 +26,14 @@ export function PostCard({ post }: Props) {
               title={formatCommunityDisplayName({
                 slug: post.communitySlug,
                 handle: post.communityHandle,
+                displayName: post.communityDisplayName,
               })}
               className="font-medium text-[var(--navy)] hover:underline"
             >
               {formatCommunityDisplayName({
                 slug: post.communitySlug,
                 handle: post.communityHandle,
+                displayName: post.communityDisplayName,
               })}
             </Link>
             <span className="text-slate-400">·</span>

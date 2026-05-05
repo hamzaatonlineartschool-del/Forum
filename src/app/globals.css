@@ -25,7 +25,7 @@
   --color-oas-sky: var(--sky);
   --color-oas-accent: var(--accent);
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-heading: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-visby), ui-sans-serif, system-ui, sans-serif;
 }
 
 body {

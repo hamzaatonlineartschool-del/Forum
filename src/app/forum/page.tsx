@@ -14,7 +14,10 @@ export default async function ForumFeedPage({ searchParams }: Props) {
   const sort = parseFeedSort(
     searchParams ? (await searchParams).sort : undefined,
   );
-  const sorted = sortPostsForFeed(getForumRepository().listPosts(), sort);
+  const sorted = sortPostsForFeed(
+    getForumRepository().listPosts().filter((p) => p.includeInMainFeed !== false),
+    sort,
+  );
   const fullAccess = await hasMyFeedFullAccessServer();
 
   let posts = sorted;

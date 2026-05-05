@@ -9,7 +9,7 @@ This document describes how backend-oriented concerns are organized in the Next.
 | **Domain** | `src/domain/forum/` | Business vocabulary and pure helpers: explore taxonomy (`EXPLORE_CATEGORIES`), display rules (`formatCommunityDisplayName`). No I/O. |
 | **Contracts** | `src/types/forum.ts` | Serializable DTOs shared across UI and data (communities, posts, comments, Lexical bodies). |
 | **Data access** | `src/data/forum/` | **Repository pattern**: `ForumRepository` interface, `MockForumRepository` implementation, `getForumRepository()` registry. |
-| **Seed / fixtures** | `src/lib/mock-data.ts` | Demo content only. Imported by `MockForumRepository`, not by routes or components directly. |
+| **Seed / fixtures** | `src/lib/forum/mock-data.ts` | Demo content only. Imported by `MockForumRepository`, not by routes or components directly. |
 | **Infrastructure** | `src/lib/media/unsplash-url.ts` | Small shared utilities (URL builders) with no domain knowledge. |
 
 ## Dependency rule
@@ -19,21 +19,21 @@ app/ + components/  →  @/data/forum (getForumRepository)
                    →  @/domain/forum (pure helpers & constants)
                    →  @/types/forum (DTOs)
 
-@/data/forum       →  @/lib/mock-data (only inside MockForumRepository)
+@/data/forum       →  `@/lib/forum` seed bundle (only inside `MockForumRepository`)
                    →  @/types/forum
                    →  @/domain/forum
 
 @/domain/forum     →  @/types/forum (types only)
-@/lib/mock-data    →  @/domain, @/types, @/lib/media
+@/lib/forum/mock-data | lexical-from-plain →  @/domain, @/types, @/lib/media
 ```
 
-Routes and React components **do not** import `@/lib/mock-data` directly; they call `getForumRepository()` so a future `PayloadForumRepository` can be registered in one place (`registry.ts`).
+Routes and React components **do not** import `@/lib/forum/mock-data` directly; they call `getForumRepository()` so a future `PayloadForumRepository` can be registered in one place (`registry.ts`).
 
 ## Extending to a real backend
 
 1. Implement `ForumRepository` against Payload, Prisma, or HTTP.
 2. In `src/data/forum/registry.ts`, choose the implementation (e.g. via `process.env.FORUM_DATA_SOURCE`).
-3. Keep seed data in `mock-data.ts` for tests and Storybook, or move seeds into fixtures.
+3. Keep seed data in `src/lib/forum/mock-data.ts` for tests and Storybook, or move seeds into fixtures.
 
 ## Conventions
 

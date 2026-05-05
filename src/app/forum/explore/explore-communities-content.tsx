@@ -130,7 +130,8 @@ export function ExploreCommunitiesContent() {
           Communities
         </h1>
         <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-600">
-          Join a space that matches your practice — tap one or more topics to narrow the list, then open a community.
+          Explore more topics, discover new learning spaces, and find your next course. Tap
+          one or more focus areas to narrow the list, then open a community.
         </p>
       </header>
 

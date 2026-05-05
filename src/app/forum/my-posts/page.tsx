@@ -8,13 +8,14 @@ export default async function MyPostsPage({ searchParams }: Props) {
   const sort = parseFeedSort(
     searchParams ? (await searchParams).sort : undefined,
   );
-  const posts = sortPostsForFeed(getForumRepository().listPosts(), sort);
+  const posts = sortPostsForFeed(getForumRepository().listMyPosts(), sort);
 
   return (
     <div>
       <ForumFeedHeader title="My posts" sortable currentSort={sort} />
       <p className="mb-8 max-w-2xl text-sm leading-relaxed text-slate-600">
-        Demo list — after login this will show your threads from Payload.
+        Your threads across the course communities you&apos;ve joined — demo data
+        stands in until accounts are wired to Payload.
       </p>
       <div className="space-y-6">
         {posts.map((post) => (

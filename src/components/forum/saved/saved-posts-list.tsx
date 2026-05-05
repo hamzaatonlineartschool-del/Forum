@@ -63,6 +63,7 @@ export function SavedPostsList() {
                   {formatCommunityDisplayName({
                     slug: p.communitySlug,
                     handle: p.communityHandle,
+                    displayName: p.communityDisplayName,
                   })}
                 </span>
                 <span className="text-xs text-slate-400" aria-hidden>

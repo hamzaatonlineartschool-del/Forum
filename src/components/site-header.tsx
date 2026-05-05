@@ -13,6 +13,24 @@ const nav = [
   { href: "/about", label: "About" },
 ] as const;
 
+/**
+ * “Explore communities” lives under `/forum/explore` but is part of Community in the IA —
+ * keep the Community tab selected for all forum routes, and don’t highlight the top “Explore”
+ * link while you’re under `/forum` (avoids two pills at once).
+ */
+function isNavItemActive(item: (typeof nav)[number], pathname: string) {
+  const forumActive = item.href === "/forum" && pathname.startsWith("/forum");
+  const exploreInForumContext =
+    item.href === "/forum/explore" && pathname.startsWith("/forum");
+  const exactActive =
+    item.href !== "/forum" &&
+    !exploreInForumContext &&
+    (item.href === "/"
+      ? pathname === "/"
+      : pathname === item.href || pathname.startsWith(`${item.href}/`));
+  return forumActive || exactActive;
+}
+
 export function SiteHeader() {
   const pathname = usePathname();
 
@@ -37,15 +55,7 @@ export function SiteHeader() {
           <div className="flex w-full max-w-3xl items-center gap-1 rounded-full border border-white/40 bg-white/45 px-2 py-1.5 shadow-sm backdrop-blur-md">
             <nav className="flex shrink-0 items-center gap-1 pl-2">
               {nav.map((item) => {
-                const forumActive =
-                  item.href === "/forum" && pathname.startsWith("/forum");
-                const exactActive =
-                  item.href !== "/forum" &&
-                  (item.href === "/"
-                    ? pathname === "/"
-                    : pathname === item.href ||
-                      pathname.startsWith(`${item.href}/`));
-                const active = forumActive || exactActive;
+                const active = isNavItemActive(item, pathname);
                 return (
                   <Link
                     key={item.href}
@@ -96,15 +106,7 @@ export function SiteHeader() {
       <div className="mt-3 space-y-2 md:hidden">
         <div className="flex flex-wrap gap-1 rounded-full border border-white/40 bg-white/45 p-1 backdrop-blur-md">
           {nav.map((item) => {
-            const forumActive =
-              item.href === "/forum" && pathname.startsWith("/forum");
-            const exactActive =
-              item.href !== "/forum" &&
-              (item.href === "/"
-                ? pathname === "/"
-                : pathname === item.href ||
-                  pathname.startsWith(`${item.href}/`));
-            const active = forumActive || exactActive;
+            const active = isNavItemActive(item, pathname);
             return (
               <Link
                 key={item.href}

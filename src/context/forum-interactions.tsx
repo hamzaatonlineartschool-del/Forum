@@ -17,7 +17,7 @@ const STORAGE_KEY = "oas-forum-interactions-v1";
 export const DEMO_USER: ForumUser = {
   id: "you",
   name: "You",
-  avatarUrl: buildUnsplashUrl("photo-1535713875002-d1d0cf377fde", 128),
+  avatarUrl: buildUnsplashUrl("photo-1573497019940-1c28c88b4f3e", 128),
 };
 
 type VoteState = { total: number; user: "up" | null };

@@ -1,7 +1,7 @@
 import type { Community } from "@/types/forum";
 
 /** Minimum fields for display naming (works with full {@link Community} or post-derived keys). */
-export type CommunityNameInput = Pick<Community, "slug" | "handle">;
+export type CommunityNameInput = Pick<Community, "slug" | "handle" | "displayName">;
 
 /** Slug → human title for legacy single-token slugs without hyphens (extend when seeding new communities). */
 const DISPLAY_NAME_BY_SLUG: Record<string, string> = {
@@ -35,6 +35,10 @@ function singleTokenTitle(token: string): string {
 export function formatCommunityDisplayName(
   community: Community | CommunityNameInput,
 ): string {
+  if (community.displayName?.trim()) {
+    return community.displayName.trim();
+  }
+
   if (community.slug.includes("-") || community.slug.includes("_")) {
     return titleCaseHyphenated(community.slug);
   }

@@ -5,6 +5,7 @@ import {
   getCommentsForPost,
   getCommunityBySlug,
   getPostById,
+  myPosts,
   posts,
   postsNewestFirst,
   recommendedCourses,
@@ -24,6 +25,10 @@ export class MockForumRepository implements ForumRepository {
 
   listPosts() {
     return posts;
+  }
+
+  listMyPosts() {
+    return myPosts;
   }
 
   listPostsNewestFirst() {
