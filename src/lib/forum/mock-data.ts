@@ -362,7 +362,7 @@ const postSeeds: PostSeed[] = [
     createdAt: daysAgo(2),
     likeCount: 47,
     commentCount: 4,
-    image: "/forum/post-p1-watercolour-landscape.png",
+    image: "/forum/post-p1-watercolour-landscape.jpg",
     includeInMainFeed: true,
     body: lexicalFromParagraphs([
       "Been working on this one all week, it's the misty hills exercise from Module 3. I'm pretty happy with how the background washes turned out but I'm not sure about the foreground trees; they feel a bit heavy compared to the rest of the painting?",
