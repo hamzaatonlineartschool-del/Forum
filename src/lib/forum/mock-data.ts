@@ -180,8 +180,8 @@ export const communities: Community[] = [
       "Hoops, thread choices, and stitch help for the Slow Stitch Club course community.",
     memberCount: 156,
     studentsOnly: true,
-    /* Embroidery hoop / slow stitch — matches p4 thread hero */
-    imageUrl: "/forum/post-p4-slow-stitch-hoop.png",
+    /* Embroidery hoop / ring — Unsplash (craft) */
+    imageUrl: us("photo-1570073141869-2b9947394c95", 400),
     category: "Craft",
   },
   {
