@@ -193,8 +193,8 @@ export const communities: Community[] = [
       "Character prompts, brush settings, and WIP feedback for Anna's Procreate learners.",
     memberCount: 892,
     studentsOnly: true,
-    /* Procreate-style portrait — supplied asset for course community */
-    imageUrl: "/forum/community-procreate-anna-rao.png",
+    /* iPad / Procreate editing — matches p5 WIP thread hero */
+    imageUrl: "/forum/post-p5-yuki-procreate-wip.png",
     category: "Illustration",
   },
   {
@@ -462,7 +462,7 @@ const postSeeds: PostSeed[] = [
     createdAt: daysAgo(6),
     likeCount: 94,
     commentCount: 3,
-    image: "/forum/post-mp3-proud-portrait.png",
+    image: "/forum/post-mp3-proud-portrait.jpg",
     includeInMainFeed: false,
     body: lexicalFromParagraphs([
       "Started this course in January with zero digital art experience. Three months later, I've created this. Thank you, Anna, for breaking it all down so patiently!",
