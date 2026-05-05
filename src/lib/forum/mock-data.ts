@@ -227,7 +227,8 @@ export const communities: Community[] = [
     description:
       "Art — Drawing · Where Isobel's students share their daily sketches and weekly drawing prompts.",
     memberCount: 367,
-    imageUrl: us("photo-1513364776144-60967b0f800f", 400),
+    /* Open sketchbook / notebook with pencil drawings — Unsplash */
+    imageUrl: us("photo-1742130847739-f7728ae50176", 400),
     category: "Art",
   },
   {
