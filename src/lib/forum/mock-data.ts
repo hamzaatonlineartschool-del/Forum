@@ -284,7 +284,8 @@ export const communities: Community[] = [
     description:
       "Craft — Knitting · A relaxed space for knitters. Share your finished pieces and ask for help when patterns get tricky.",
     memberCount: 312,
-    imageUrl: us("photo-1617576683096-00fc8eecb3af", 400),
+    /* Hands knitting fabric / needles & yarn — Unsplash */
+    imageUrl: us("photo-1632649027900-389e810204e6", 400),
     category: "Craft",
   },
   {
