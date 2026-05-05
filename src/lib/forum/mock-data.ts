@@ -205,7 +205,8 @@ export const communities: Community[] = [
     description:
       "Craft — Crochet · A friendly space for beginner crocheters; pattern help, yarn recommendations and work-in-progress shares.",
     memberCount: 428,
-    imageUrl: us("photo-1606107557195-0e29a4b5b4aa", 400),
+    /* Crochet blanket & hooks / kit — Unsplash */
+    imageUrl: us("photo-1728393287642-13bee7126ae8", 400),
     category: "Craft",
   },
   {
