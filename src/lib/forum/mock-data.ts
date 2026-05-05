@@ -251,7 +251,8 @@ export const communities: Community[] = [
     description:
       "Craft — Soap making · Recipes, fragrance pairings and small-batch making with Clara's students.",
     memberCount: 198,
-    imageUrl: us("photo-1602607202436-d1b8db3b7b32", 400),
+    /* Handmade soap bars — small-batch craft (Unsplash) */
+    imageUrl: us("photo-1546552768-9e3a94b38a59", 400),
     category: "Craft",
   },
   {
