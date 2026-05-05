@@ -263,7 +263,8 @@ export const communities: Community[] = [
     description:
       "Illustration — Traditional · Traditional illustration techniques and weekly art prompts from Hiro.",
     memberCount: 444,
-    imageUrl: us("photo-1549185984-cb519424aa49", 400),
+    /* Open sketchbook / ink figure drawing — Unsplash */
+    imageUrl: us("photo-1744383104064-28aed58a2332", 400),
     category: "Illustration",
   },
   {
