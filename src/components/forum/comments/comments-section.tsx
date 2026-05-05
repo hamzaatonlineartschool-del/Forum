@@ -155,7 +155,10 @@ function ThreadBranch({
                   )}
                   onClick={() => voteComment(comment.id, comment.likeCount)}
                 >
-                  <ThumbsUp className="size-3.5" />
+                  <ThumbsUp
+                    className={cn("size-3.5", user === "up" && "fill-current")}
+                    aria-hidden
+                  />
                 </button>
                 <span className="min-w-[1rem] text-center font-medium text-slate-700">
                   {total}
@@ -197,7 +200,7 @@ function ThreadBranch({
   );
 }
 
-export function CommentsSection({ postId }: { postId: string }) {
+export function CommentsSection({ postId, embedded }: { postId: string; embedded?: boolean }) {
   const { getCommentsForPost, addComment } = useForumInteractions();
   const [text, setText] = useState("");
   const [replyToId, setReplyToId] = useState<string | null>(null);
@@ -310,13 +313,22 @@ export function CommentsSection({ postId }: { postId: string }) {
   }
 
   return (
-    <section className="mt-10">
-      <h2 className="font-heading text-lg font-semibold text-slate-900">Comments</h2>
+    <section className={cn(embedded ? "mt-6 border-t border-slate-200/70 pt-5" : "mt-10")}>
+      <h2
+        className={cn(
+          "font-heading font-semibold text-slate-900",
+          embedded ? "text-base" : "text-lg",
+        )}
+      >
+        Comments
+      </h2>
 
       {roots.length === 0 ? (
-        <p className="mt-6 text-sm text-slate-500">No comments yet — start the thread below.</p>
+        <p className={cn("text-sm text-slate-500", embedded ? "mt-3" : "mt-6")}>
+          No comments yet — start the thread below.
+        </p>
       ) : (
-        <ul className="mt-6 space-y-6">
+        <ul className={cn("space-y-6", embedded ? "mt-4" : "mt-6")}>
           {roots.map((c) => (
             <ThreadBranch
               key={c.id}
@@ -329,7 +341,12 @@ export function CommentsSection({ postId }: { postId: string }) {
         </ul>
       )}
 
-      <div className="relative mt-10 rounded-2xl border border-white/50 bg-white/50 p-4 backdrop-blur-sm">
+      <div
+        className={cn(
+          "relative rounded-2xl border border-white/50 bg-white/50 p-4 backdrop-blur-sm",
+          embedded ? "mt-6" : "mt-10",
+        )}
+      >
         {replyToId ? (
           <div className="mb-3 flex items-center justify-between text-sm">
             <span className="text-slate-600">

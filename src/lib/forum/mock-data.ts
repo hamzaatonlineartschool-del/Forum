@@ -141,7 +141,8 @@ export const communities: Community[] = [
       "Peer feedback, wash technique questions, and homework from Sarah's watercolour course — enrolled learners only.",
     memberCount: 284,
     studentsOnly: true,
-    imageUrl: us("photo-1617080090911-91409e3496ad", 400),
+    /* Watercolour washes / palette — reads clearly as painting, not generic decor */
+    imageUrl: us("photo-1513364776144-60967b0f800f", 400),
     category: "Art",
   },
   {
@@ -153,7 +154,8 @@ export const communities: Community[] = [
       "Assignments, manual mode breakdowns, and kit questions from the Light & Lens photography cohort.",
     memberCount: 612,
     studentsOnly: true,
-    imageUrl: us("photo-1516035069371-29a1b244cc32", 400),
+    /* Camera lens — photography cohort */
+    imageUrl: us("photo-1523905330026-b8bd1f5f320e", 400),
     category: "Photography",
   },
   {
@@ -165,7 +167,8 @@ export const communities: Community[] = [
       "Mix critiques, DAW questions, and bonus lesson discussion for Mark's music production students.",
     memberCount: 1043,
     studentsOnly: true,
-    imageUrl: us("photo-1540293978230-f0c649f63374", 400),
+    /* Keyboard / studio — music production */
+    imageUrl: us("photo-1511379938547-c1f69419868d", 400),
     category: "Music",
   },
   {
@@ -177,7 +180,8 @@ export const communities: Community[] = [
       "Hoops, thread choices, and stitch help for the Slow Stitch Club course community.",
     memberCount: 156,
     studentsOnly: true,
-    imageUrl: us("photo-1594577983669-af1f34dd5d7a", 400),
+    /* Yarn & fibre — textile / slow craft */
+    imageUrl: us("photo-1516975080664-ed2fc6a32937", 400),
     category: "Craft",
   },
   {
@@ -189,7 +193,8 @@ export const communities: Community[] = [
       "Character prompts, brush settings, and WIP feedback for Anna's Procreate learners.",
     memberCount: 892,
     studentsOnly: true,
-    imageUrl: us("photo-1620912189523-9a506dd6122a", 400),
+    /* Tablet + stylus — digital illustration / Procreate vibe */
+    imageUrl: us("photo-1611532736597-de2d4265fba3", 400),
     category: "Illustration",
   },
   {
@@ -321,21 +326,41 @@ function communityById(id: string): Community {
   return c;
 }
 
+const POST_P2_CAPTION =
+  "I've been on auto for years and switching everything to manual feels like learning to drive again. I keep getting the exposure wrong, especially in changing light. How long did it take you all to get comfortable with it? Wondering if I should slow down and redo Module 2 before pushing on, or if it just clicks eventually with more practice.";
+
+const POST_P2_EXCERPT =
+  "I've been on auto for years and switching everything to manual feels like learning to drive again. I keep getting the exposure wrong, especially in changing light. How long did it take ...";
+
+const POST_P4_P1 =
+  "When I started this course I genuinely couldn't tell a satin stitch from a chain stitch. Today I framed my first hoop that I'm actually proud of. Going to give it to my mum for her birthday next week.";
+const POST_P4_P2 =
+  "Thank you to everyone in this club who's answered my (many, many) panicked questions along the way. This community is the reason I stuck with it ❤️";
+
+const POST_P4_EXCERPT =
+  "When I started this course I genuinely couldn't tell a satin stitch from a chain stitch. Today I framed my first hoop ...";
+
+const POST_P5_CAPTION =
+  "Working on the character portrait brief from Module 4. I've got the line work and flat colours down but I'm at the part where I always overthink the shading and end up muddying the whole thing. Anna's lesson on soft vs hard shading was so helpful but I can't decide which would suit this piece better. Going for a slightly soft, painterly feel but I don't want to lose the line work. Any thoughts?";
+
+const POST_P5_EXCERPT =
+  "Working on the character portrait brief from Module 4. I've got the line work and flat colours down but I'm at the part where ...";
+
 const postSeeds: PostSeed[] = [
   {
     id: "p1",
     communityId: "c1",
     title: "Finally finished my first proper landscape!",
     excerpt:
-      "Misty hills from Module 3 — feedback welcome on the trees and washes.",
+      "Been working on this one all week, it's the misty hills exercise from Module 3. I'm pretty happy with how ...",
     author: U.megan,
     createdAt: daysAgo(2),
     likeCount: 47,
     commentCount: 4,
-    image: us("photo-1464822759023-fed622ff2c3b", 1600, 900),
+    image: "/forum/post-p1-watercolour-landscape.png",
     includeInMainFeed: true,
     body: lexicalFromParagraphs([
-      "Been working on this one all week — it's the misty hills exercise from Module 3. I'm pretty happy with how the background washes turned out but I'm not sure about the foreground trees; they feel a bit heavy compared to the rest of the painting?",
+      "Been working on this one all week, it's the misty hills exercise from Module 3. I'm pretty happy with how the background washes turned out but I'm not sure about the foreground trees; they feel a bit heavy compared to the rest of the painting?",
       "Would love any feedback before I move on to the next exercise. Sarah, if you spot this — was I meant to wait longer between the layers? I think I might have rushed the second wash.",
     ]),
   },
@@ -343,18 +368,13 @@ const postSeeds: PostSeed[] = [
     id: "p2",
     communityId: "c2",
     title: "Does anyone else find the manual mode exercises overwhelming?",
-    excerpt:
-      "Switching from auto after years — exposure keeps tripping me up in changing light.",
+    excerpt: POST_P2_EXCERPT,
     author: U.david,
     createdAt: hoursAgo(30),
     likeCount: 62,
     commentCount: 4,
-    image: us("photo-1488684430052-f2d92fb178c2", 1600, 900),
     includeInMainFeed: true,
-    body: lexicalFromParagraphs([
-      "I've been on auto for years and switching everything to manual feels like learning to drive again. I keep getting the exposure wrong, especially in changing light. How long did it take you all to get comfortable with it?",
-      "Wondering if I should slow down and redo Module 2 before pushing on, or if it just clicks eventually with more practice.",
-    ]),
+    body: lexicalFromParagraphs([POST_P2_CAPTION]),
   },
   {
     id: "p3",
@@ -366,7 +386,6 @@ const postSeeds: PostSeed[] = [
     createdAt: hoursAgo(8),
     likeCount: 128,
     commentCount: 5,
-    image: us("photo-1511379938547-c1f69419868d", 1600, 900),
     includeInMainFeed: true,
     body: lexicalFromParagraphs([
       "Hey everyone! Based on the questions coming up in the forum (a lot of you have been asking about low-end clarity and vocals sitting in the mix), I've recorded three new bonus lessons that are now live in Module 6:",
@@ -380,35 +399,27 @@ const postSeeds: PostSeed[] = [
     id: "p4",
     communityId: "c4",
     title: "6 months in and I finished my first proper piece!",
-    excerpt:
-      "Framed my hoop — gifting it to my mum. Thank you to everyone who answered my panicked questions.",
+    excerpt: POST_P4_EXCERPT,
     author: U.rosie,
     createdAt: daysAgo(1),
     likeCount: 203,
     commentCount: 5,
-    image: us("photo-1566152467605-fd2f144798e5", 1600, 900),
+    image: "/forum/post-p4-slow-stitch-hoop.png",
     includeInMainFeed: true,
-    body: lexicalFromParagraphs([
-      "When I started this course I genuinely couldn't tell a satin stitch from a chain stitch. Today I framed my first hoop that I'm actually proud of. Going to give it to my mum for her birthday next week.",
-      "Thank you to everyone in this club who's answered my (many, many) panicked questions along the way. This community is the reason I stuck with it.",
-    ]),
+    body: lexicalFromParagraphs([POST_P4_P1, POST_P4_P2]),
   },
   {
     id: "p5",
     communityId: "c5",
-    title: "Work in progress — would love thoughts before I commit to the shading…",
-    excerpt:
-      "Module 4 portrait brief — torn between soft and hard shading without muddying the line work.",
+    title: "Work in progress, would love thoughts before I commit to the shading...",
+    excerpt: POST_P5_EXCERPT,
     author: U.yuki,
     createdAt: hoursAgo(5),
     likeCount: 71,
     commentCount: 4,
-    image: us("photo-1572044162444-ad60f128bdea", 1600, 900),
+    image: "/forum/post-p5-yuki-procreate-wip.png",
     includeInMainFeed: true,
-    body: lexicalFromParagraphs([
-      "Working on the character portrait brief from Module 4. I've got the line work and flat colours down but I'm at the part where I always overthink the shading and end up muddying the whole thing.",
-      "Anna's lesson on soft vs hard shading was so helpful but I can't decide which would suit this piece better. Going for a slightly soft, painterly feel but I don't want to lose the line work. Any thoughts?",
-    ]),
+    body: lexicalFromParagraphs([POST_P5_CAPTION]),
   },
   {
     id: "mp1",
@@ -436,7 +447,6 @@ const postSeeds: PostSeed[] = [
     createdAt: daysAgo(4),
     likeCount: 22,
     commentCount: 3,
-    image: us("photo-1600783617775-9cb3e067c13b", 1600, 900),
     includeInMainFeed: false,
     body: lexicalFromParagraphs([
       "I get what it does in theory but when I use it on my own tracks I can't tell the difference. Any tips for training my ears?",
@@ -452,7 +462,7 @@ const postSeeds: PostSeed[] = [
     createdAt: daysAgo(6),
     likeCount: 94,
     commentCount: 3,
-    image: us("photo-1581094798398-153528d38b8f", 1600, 900),
+    image: "/forum/post-mp3-proud-portrait.png",
     includeInMainFeed: false,
     body: lexicalFromParagraphs([
       "Started this course in January with zero digital art experience. Three months later, I've created this. Thank you, Anna, for breaking it all down so patiently!",
@@ -565,7 +575,7 @@ export const commentsByPost: Record<string, ForumComment[]> = {
       "p2",
       null,
       U.marcusW,
-      "I'd say redo Module 2 — that exposure triangle diagram is everything. Once it clicks, it clicks. I still go back to it.",
+      "I'd say redo Module 2, that exposure triangle diagram is everything, once it clicks it clicks. I still go back to it.",
       1,
       9,
     ),
@@ -574,7 +584,7 @@ export const commentsByPost: Record<string, ForumComment[]> = {
       "p2",
       null,
       U.david,
-      "Thanks both — that's reassuring. I think I'll redo it this weekend and just shoot in my garden until it feels natural.",
+      "Thanks both, that's reassuring. I think I'll redo it this weekend and just shoot in my garden until it feels natural.",
       0,
       4,
     ),
@@ -583,7 +593,7 @@ export const commentsByPost: Record<string, ForumComment[]> = {
       "p2",
       null,
       U.elenaR,
-      "Same boat as you David — you're not alone! Module 2 second time round is so much clearer.",
+      "Same boat as you David, you're not alone! Module 2 second time round is so much clearer.",
       0,
       7,
     ),
@@ -594,7 +604,7 @@ export const commentsByPost: Record<string, ForumComment[]> = {
       "p3",
       null,
       U.danielR,
-      "Mark this is amazing — the stock plugins walkthrough is exactly what I needed. Going to dive in tonight.",
+      "This is unreal — I've been hanging out for exactly this kind of stock plugins walkthrough. Going in tonight!",
       0,
       16,
     ),
@@ -603,7 +613,7 @@ export const commentsByPost: Record<string, ForumComment[]> = {
       "p3",
       null,
       U.aishaN,
-      "The vocal one — I've been struggling with this for weeks. Perfect timing.",
+      "The vocal lesson — I've been wrestling with vocals for weeks. Thank you for this 🙏",
       0,
       12,
     ),
@@ -612,7 +622,7 @@ export const commentsByPost: Record<string, ForumComment[]> = {
       "p3",
       null,
       U.tomF,
-      "Genuinely the best thing about this course is that it keeps getting better. Thank you Mark!",
+      "Love how this course keeps levelling up. Appreciate you Mark!",
       0,
       20,
     ),
@@ -621,7 +631,7 @@ export const commentsByPost: Record<string, ForumComment[]> = {
       "p3",
       null,
       U.sophieL,
-      "Quick question — do the new lessons assume we've finished Module 5 or can we jump in?",
+      "Do I need to finish Module 5 before these land, or can I jump straight in?",
       0,
       5,
     ),
@@ -630,7 +640,7 @@ export const commentsByPost: Record<string, ForumComment[]> = {
       "p3",
       "cm-p3-4",
       U.mark,
-      "@Sophie they build on Module 5 a little but you should be fine to jump in if you've covered the basics of EQ and compression. If anything's unclear just shout.",
+      "@Sophie they build on Module 5 a little but you should be fine to jump in if you've covered the basics of EQ and compression. If anything's unclear just shout 👍",
       0,
       8,
     ),
@@ -641,7 +651,7 @@ export const commentsByPost: Record<string, ForumComment[]> = {
       "p4",
       null,
       U.hannahP,
-      "Rosie this is STUNNING. Your mum is going to cry.",
+      "Rosie this is STUNNING. Your mum is going to cry 🥹",
       1,
       24,
     ),
@@ -650,7 +660,7 @@ export const commentsByPost: Record<string, ForumComment[]> = {
       "p4",
       null,
       U.joanneT,
-      "The colour palette is so beautiful — what threads did you use?",
+      "The colour palette is so beautiful, what threads did you use?",
       1,
       6,
     ),
@@ -659,7 +669,7 @@ export const commentsByPost: Record<string, ForumComment[]> = {
       "p4",
       "cm-p4-2",
       U.rosie,
-      "@Joanne mostly DMC — happy to share the list if you want?",
+      "@Joanne mostly DMC, happy to share the list if you want?",
       0,
       4,
     ),
@@ -668,7 +678,7 @@ export const commentsByPost: Record<string, ForumComment[]> = {
       "p4",
       null,
       U.luciaM,
-      "This is exactly the kind of post I needed to see today — I've been ready to give up on mine. Saving for motivation.",
+      "This is exactly the kind of post I needed to see today, I've been ready to give up on mine. Saving for motivation.",
       1,
       15,
     ),
@@ -677,7 +687,7 @@ export const commentsByPost: Record<string, ForumComment[]> = {
       "p4",
       "cm-p4-4",
       U.bethW,
-      "From someone who's been there — keep going Lucia, the breakthrough comes.",
+      "From someone who's been there, keep going Lucia, the breakthrough comes ✨",
       0,
       9,
     ),
@@ -688,7 +698,7 @@ export const commentsByPost: Record<string, ForumComment[]> = {
       "p5",
       null,
       U.liamB,
-      "I think soft would suit this beautifully — the line work is delicate so hard shading might fight it?",
+      "I think soft would suit this beautifully, the line work is delicate so hard shading might fight it?",
       0,
       10,
     ),
@@ -697,7 +707,7 @@ export const commentsByPost: Record<string, ForumComment[]> = {
       "p5",
       null,
       U.anna,
-      "Agreed with Liam. Try soft on a clipping mask at low opacity first — you can always build up. Lovely linework btw — your confidence has come on so much since the first module.",
+      "Agreed with Liam. Try soft on a clipping mask at low opacity first, you can always build up. Lovely linework btw, your confidence has come on so much since the first module 💫",
       0,
       22,
     ),
@@ -706,7 +716,7 @@ export const commentsByPost: Record<string, ForumComment[]> = {
       "p5",
       "cm-p5-2",
       U.yuki,
-      "Anna — thank you, that means a lot. Trying soft now!",
+      "Anna 🥹 thank you, that means a lot. Trying soft now!",
       0,
       5,
     ),
@@ -715,7 +725,7 @@ export const commentsByPost: Record<string, ForumComment[]> = {
       "p5",
       null,
       U.priyaM,
-      "The character has so much personality already — can't wait to see it finished.",
+      "The character has so much personality already, can't wait to see it finished",
       0,
       7,
     ),
@@ -773,7 +783,7 @@ export const commentsByPost: Record<string, ForumComment[]> = {
       "mp2",
       null,
       U.mark,
-      "Great question — there's a bonus video in Module 6 specifically on this. Give it a watch.",
+      "Great question — there's a bonus video in Module 6 specifically on this, give it a watch 👍",
       1,
       9,
     ),
@@ -821,7 +831,7 @@ export const recommendedCourses: RecommendedCourse[] = [
     level: "Beginner",
     duration: "4h",
     price: "£14.99",
-    imageUrl: us("photo-1579783902614-a3fb3927b6a5", 400, 240),
+    imageUrl: "/forum/course-elena-acrylic-essentials.png",
   },
   {
     id: "course-iphone-video",
@@ -831,7 +841,7 @@ export const recommendedCourses: RecommendedCourse[] = [
     level: "Intermediate",
     duration: "8h",
     price: "£29.99",
-    imageUrl: us("photo-1577510247208-a3a1bb017116", 400, 240),
+    imageUrl: "/forum/course-james-iphone-videography.png",
   },
   {
     id: "course-guitar-fingerstyle",
@@ -841,7 +851,7 @@ export const recommendedCourses: RecommendedCourse[] = [
     level: "Advanced",
     duration: "18h",
     price: "£54.99",
-    imageUrl: us("photo-1581558775876-b39ad32a0852", 400, 240),
+    imageUrl: "/forum/course-daniel-fingerstyle-guitar.png",
   },
   {
     id: "course-candles",
@@ -851,7 +861,7 @@ export const recommendedCourses: RecommendedCourse[] = [
     level: "Beginner",
     duration: "2.5h",
     price: "£12.99",
-    imageUrl: us("photo-1602607203304-b57d80a65791", 400, 240),
+    imageUrl: "/forum/course-priya-soy-candles.png",
   },
   {
     id: "course-calligraphy",
@@ -861,7 +871,7 @@ export const recommendedCourses: RecommendedCourse[] = [
     level: "All Levels",
     duration: "6h",
     price: "£12.99",
-    imageUrl: us("photo-1486303954368-398fea0e72cd", 400, 240),
+    imageUrl: "/forum/course-hannah-calligraphy.png",
   },
   {
     id: "course-animate-2d",

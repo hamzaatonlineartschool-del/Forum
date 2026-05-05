@@ -43,7 +43,10 @@ export function PostCardActions({
           )}
           onClick={() => votePost(postId)}
         >
-          <ThumbsUp className="size-4" />
+          <ThumbsUp
+            className={cn("size-4", user === "up" && "fill-current")}
+            aria-hidden
+          />
         </button>
         <span className="min-w-[1.25rem] text-center text-sm font-medium text-slate-700">
           {total}

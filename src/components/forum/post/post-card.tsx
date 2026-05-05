@@ -3,6 +3,7 @@ import Link from "next/link";
 import { formatCommunityDisplayName } from "@/domain/forum";
 import type { ForumPost } from "@/types/forum";
 import { formatDistanceToNow } from "@/lib/format-date";
+import { PostCardExpandableCaption } from "./post-card-expandable-caption";
 import { PostCardActions } from "./post-card-actions";
 
 type Props = { post: ForumPost };
@@ -69,7 +70,7 @@ export function PostCard({ post }: Props) {
       ) : null}
 
       {post.excerpt ? (
-        <p className="px-5 pt-4 text-slate-600">{post.excerpt}</p>
+        <PostCardExpandableCaption excerpt={post.excerpt} body={post.body} id={post.id} />
       ) : null}
 
       <PostCardActions postId={post.id} communitySlug={post.communitySlug} />
