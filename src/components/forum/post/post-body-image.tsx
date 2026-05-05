@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -17,8 +16,14 @@ const frameVariants = {
 
 /**
  * Post hero media: preserves intrinsic aspect ratio (portrait vs landscape) inside a bounded frame.
+ * Uses a plain `img` so `/forum/*` and remote URLs always render (avoids `next/image` optimizer edge cases on some hosts).
  */
-export function PostBodyImage({ src, sizes, variant = "feed", className }: Props) {
+export function PostBodyImage({
+  src,
+  sizes,
+  variant = "feed",
+  className,
+}: Props) {
   return (
     <div
       className={cn(
@@ -27,7 +32,16 @@ export function PostBodyImage({ src, sizes, variant = "feed", className }: Props
         className,
       )}
     >
-      <Image src={src} alt="" fill className="object-contain" sizes={sizes} priority={variant === "detail"} />
+      {/* eslint-disable-next-line @next/next/no-img-element -- predictable rendering for mock/local assets */}
+      <img
+        src={src}
+        alt=""
+        sizes={sizes}
+        loading={variant === "detail" ? "eager" : "lazy"}
+        fetchPriority={variant === "detail" ? "high" : undefined}
+        decoding={variant === "detail" ? "sync" : "async"}
+        className="absolute left-1/2 top-1/2 max-h-full max-w-full -translate-x-1/2 -translate-y-1/2 object-contain"
+      />
     </div>
   );
 }
