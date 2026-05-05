@@ -167,8 +167,8 @@ export const communities: Community[] = [
       "Mix critiques, DAW questions, and bonus lesson discussion for Mark's music production students.",
     memberCount: 1043,
     studentsOnly: true,
-    /* DJ booth / decks — electronic & club production vibe */
-    imageUrl: us("photo-1614613535308-eb5fbd3d2c17", 400),
+    /* DJ at controller — live mixing (Unsplash) */
+    imageUrl: us("photo-1541126274323-dbac58d14741", 400),
     category: "Music",
   },
   {
