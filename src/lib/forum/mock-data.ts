@@ -154,8 +154,8 @@ export const communities: Community[] = [
       "Assignments, manual mode breakdowns, and kit questions from the Light & Lens photography cohort.",
     memberCount: 612,
     studentsOnly: true,
-    /* Camera lens — photography cohort */
-    imageUrl: us("photo-1523905330026-b8bd1f5f320e", 400),
+    /* DSLR / photography — stable id for course community icon */
+    imageUrl: us("photo-1516035069371-29a1b244cc32", 400),
     category: "Photography",
   },
   {
