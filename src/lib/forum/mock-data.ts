@@ -827,7 +827,7 @@ export const recommendedCourses: RecommendedCourse[] = [
     id: "course-acrylic",
     title: "Acrylic Painting Essentials: Your First Canvas",
     instructor: "Elena Marchetti",
-    instructorAvatar: us("photo-1463453091185-61582044d556", 64),
+    instructorAvatar: us("photo-1544005313-94ddf0286df2", 64),
     level: "Beginner",
     duration: "4h",
     price: "£14.99",
