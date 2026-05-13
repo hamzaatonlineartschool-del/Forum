@@ -26,7 +26,7 @@ cp .env.example .env
 
 ## Node.js
 
-Use a current **Node.js LTS** release if you hit toolchain issues (no `engines` field is declared in `package.json`).
+The repo includes `.nvmrc` (Node **20**). With [nvm](https://github.com/nvm-sh/nvm): run `nvm use`. Otherwise use Node 20 or a current LTS close to it.
 
 ## ZIP archive
 
